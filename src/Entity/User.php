@@ -14,30 +14,32 @@ class User
      * @ORM\GeneratedValue()
      * @ORM\Column(type="integer")
      */
-    protected $id_user;
+    private $id_user;
 
+    /**
+     * @ORM\Column(type="string", length=255, unique=true)
+     * @Assert\NotBlank()
+     * @Assert\Email()")
+     */
+    private $username;
 
     /**
      * @ORM\GeneratedValue()
      * @ORM\Column(type="string")
+     * @Assert\Length(max=4096)
      */
-    protected $username;
+    private $password;
 
     /**
      * @ORM\GeneratedValue()
-     * @ORM\Column(type="string")
+     *  @ORM\Column(type="string", length=64)
      */
-    protected $password;
+    private $mail_user;
 
     /**
-     * @ORM\GeneratedValue()
-     * @ORM\Column(type="string")
-     */
-    protected $mail_user;
-
-    /**
+     * @ORM\Column(type="string", length=255, unique=true)
      * @ORM\GeneratedValue()
      * @ORM\Column(type="blob")
      */
-    protected $photo_user;
+    private $photo_user;
 }
