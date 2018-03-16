@@ -3,7 +3,8 @@
 namespace App\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
-
+use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
+use Symfony\Component\Security\Core\User\UserInterface;
 /**
  * @ORM\Entity(repositoryClass="App\Repository\UserRepository")
  */
@@ -14,32 +15,62 @@ class User
      * @ORM\GeneratedValue()
      * @ORM\Column(type="integer")
      */
-    private $id_user;
+    protected $id_user;
 
-    /**
-     * @ORM\Column(type="string", length=255, unique=true)
-     * @Assert\NotBlank()
-     * @Assert\Email()")
-     */
-    private $username;
 
     /**
      * @ORM\GeneratedValue()
      * @ORM\Column(type="string")
-     * @Assert\Length(max=4096)
      */
-    private $password;
+    protected $username;
 
     /**
      * @ORM\GeneratedValue()
-     *  @ORM\Column(type="string", length=64)
+     * @ORM\Column(type="string")
      */
-    private $mail_user;
+    protected $password;
 
     /**
-     * @ORM\Column(type="string", length=255, unique=true)
+     * @ORM\GeneratedValue()
+     * @ORM\Column(type="string")
+     */
+    protected $mail_user;
+
+    /**
      * @ORM\GeneratedValue()
      * @ORM\Column(type="blob")
      */
-    private $photo_user;
+    protected $photo_user;
+
+
+
+    public function getUsername()
+    {
+        return $this->username;
+    }
+
+    public function setUsername($username)
+    {
+        $this->username = $username;
+    }
+
+    public function getPassword()
+    {
+        return $this->password;
+    }
+
+    public function setPassword($password)
+    {
+        $this->password = $password;
+    }
+    public function getEmail()
+    {
+        return $this->mail_user;
+    }
+
+    public function setEmail($mail_user)
+    {
+        $this->mail_user = $mail_user;
+    }
 }
+nmlkhpi
