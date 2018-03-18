@@ -16,5 +16,4 @@ class AdminController extends Controller
             'controller_name' => 'AdminController',
         ]);
     }
-
 }
