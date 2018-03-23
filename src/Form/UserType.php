@@ -1,8 +1,9 @@
 <?php
-// src/AppBundle/Form/UserType.php
-namespace AppBundle\Form;
 
-use AppBundle\Entity\User;
+
+namespace App\Form;
+
+
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
@@ -10,6 +11,7 @@ use Symfony\Component\Form\Extension\Core\Type\EmailType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\Extension\Core\Type\RepeatedType;
 use Symfony\Component\Form\Extension\Core\Type\PasswordType;
+use Symfony\Component\Security\Core\User\UserInterface;
 
 class UserType extends AbstractType
 {
@@ -29,7 +31,7 @@ class UserType extends AbstractType
     public function configureOptions(OptionsResolver $resolver)
     {
         $resolver->setDefaults(array(
-            'data_class' => User::class,
+            'data_class' => UserInterface::class,
         ));
     }
 }
